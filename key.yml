@@ -1,0 +1,25 @@
+Resources:
+  Key:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: openrolesanywhere CA
+      KeySpec: ECC_NIST_P256
+      KeyUsage: SIGN_VERIFY
+      KeyPolicy:
+        Version: "2012-10-17"
+        Id: key-policy
+        Statement:
+          - Sid: AllowIAM
+            Effect: Allow
+            Action: kms:*
+            Resource: "*"
+            Principal:
+              AWS: !Sub arn:aws:iam::${AWS::AccountId}:root
+      Tags:
+        - Key: openrolesanywhere
+          Value: true
+
+Outputs:
+  KeyArn:
+    Value: !GetAtt Key.Arn
+
