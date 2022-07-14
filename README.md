@@ -141,6 +141,9 @@ fully-featured production version of this:
 * Yubikeys (are probably covered by one of the above?)
 * A SigV4 implementation that isn't copy-pasted and edited from the AWS SDK
 * Documentation for `rolesanywhere:CreateSession`
+* Separation into a long-lived daemon (ideally socket-activated) that caches
+  AWS credentials in memory and a client for it, so that `CreateSession` rate 
+  limits aren't reached.
 
 [1]: I wanted to use an SSH agent for the certificate authority, but this wasn't
 possible out of the box with the Go stdlib - and I didn't want to sink too much
