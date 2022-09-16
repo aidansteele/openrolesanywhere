@@ -7,8 +7,8 @@ my own education.
 
 ## What and why?
 
-The [official client][aws-client] works, but has a few short-comings IMO. It's
-not open source and it requires you to store private keys in plaintext on the
+The [official client][aws-client] works, but has a few short-comings IMO. ~It's
+not open source~ ([it is now!][aws-oss]) and it requires you to store private keys in plaintext on the
 filesystem. **This project lets you use private keys stored in an SSH agent.** 
 This is more flexible - and more secure if you use something like [Secretive][secretive]
 which stores unexportable keys in the macOS Secure Enclave hardware.
@@ -155,3 +155,5 @@ time into a PoC.
 [kms]: https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html
 [pkcs11]: https://en.wikipedia.org/wiki/PKCS_11
 [tpm]: https://en.wikipedia.org/wiki/Trusted_Platform_Module
+[aws-oss]: https://github.com/aws/rolesanywhere-credential-helper
+
